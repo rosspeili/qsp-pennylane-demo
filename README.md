@@ -4,6 +4,8 @@ Training Quantum Signal Processing (QSP) phase angles from scratch via JAX gradi
 
 A PennyLane community demo by Ross Peili.
 
+[**View the Notebook on nbviewer**](https://nbviewer.org/github/rosspeili/qsp-pennylane-demo/blob/main/demo.ipynb)
+
 ---
 
 ## What This Is
