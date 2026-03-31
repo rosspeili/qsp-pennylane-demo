@@ -51,7 +51,7 @@ def _qsp_qnode(phases, x):
         RZ(-2*phi_0)
         [W(x)  RZ(-2*phi_k)]  for k = 1, ..., d
 
-    The expected value <Z> encodes a polynomial in x of degree d.
+    The expected value <X> encodes a polynomial in x of degree d.
     IMPORTANT: x must be in [-1, 1] for arccos to be real-valued.
     """
     n = phases.shape[0]
@@ -64,7 +64,7 @@ def _qsp_qnode(phases, x):
         qml.Hadamard(wires=0)
         # Phase rotation
         qml.RZ(-2.0 * phases[k], wires=0)
-    return qml.expval(qml.PauliZ(0))
+    return qml.expval(qml.PauliX(0))
 
 
 def qsp_circuit(phases, x):

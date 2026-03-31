@@ -57,7 +57,7 @@ qsp-pennylane-demo/
 
 - **Signal oracle**: `W(x) = H @ RZ(-2*arccos(x)) @ H`, encoding signal `x ∈ (-1, 1)` in the top-left matrix element
 - **QSP sequence**: Flat alternating circuit — one phase rotation `RZ(-2*phi_k)` per signal query `W(x)`
-- **Polynomial encoding**: The expectation value `<Z>` encodes a degree-d polynomial in `x` determined by the phase angles
+- **Polynomial encoding**: The expectation value `<X>` encodes a degree-d polynomial in `x` determined by the phase angles
 - **Training**: Adam optimizer (Optax) minimizes MSE between circuit output and target polynomial via `jax.grad`
 - **Note**: The circuit is implemented as inline `qml.RZ` + `qml.Hadamard` gates, not `qml.QSVT`, to preserve JAX traceability
 
