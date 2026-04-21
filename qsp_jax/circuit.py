@@ -5,7 +5,7 @@ The QSP sequence is implemented as a flat PennyLane circuit (manual interleaving
 of signal oracle and phase rotations). This preserves the JAX computation graph
 through the phase angles, making the circuit fully differentiable via jax.grad.
 
-Note: qml.QSVT takes pre-built operator *objects* as arguments. Those objects
+Note: qp.QSVT takes pre-built operator *objects* as arguments. Those objects
 capture concrete values at construction time, breaking JAX tracing. The manual
 flat-circuit approach avoids this and is the correct pattern for JAX-based
 variational optimization of QSP phase angles.
@@ -17,7 +17,7 @@ Reference:
 
 import jax
 import jax.numpy as jnp
-import pennylane as qml
+import pennylane as qp
 
 # float64 must be enabled before any JAX computation is traced.
 # Setting it here at import time ensures all QNodes and gradient
@@ -28,14 +28,14 @@ jax.config.update("jax_enable_x64", True)
 # Device
 # ---------------------------------------------------------------------------
 
-_dev = qml.device("default.qubit", wires=1)
+_dev = qp.device("default.qubit", wires=1)
 
 # ---------------------------------------------------------------------------
 # QSP circuit
 # ---------------------------------------------------------------------------
 
 
-@qml.qnode(_dev, interface="jax", diff_method="backprop")
+@qp.qnode(_dev, interface="jax", diff_method="backprop")
 def _qsp_qnode(phases, x):
     """
     Flat QSP sequence on one qubit.
@@ -56,16 +56,16 @@ def _qsp_qnode(phases, x):
     """
     n = phases.shape[0]
     # Initial phase rotation
-    qml.RZ(-2.0 * phases[0], wires=0)
+    qp.RZ(-2.0 * phases[0], wires=0)
     for k in range(1, n):
         # Signal oracle W(x) = H R_Z(-2*arccos(x)) H
-        qml.Hadamard(wires=0)
-        qml.RZ(-2.0 * jnp.arccos(x), wires=0)
-        qml.Hadamard(wires=0)
+        qp.Hadamard(wires=0)
+        qp.RZ(-2.0 * jnp.arccos(x), wires=0)
+        qp.Hadamard(wires=0)
         # Phase rotation
-        qml.RZ(-2.0 * phases[k], wires=0)
-    return qml.expval(qml.PauliX(0))
-
+        qp.RZ(-2.0 * phases[k], wires=0)
+    return qp.expval(qp.PauliX(0))
+    
 
 def qsp_circuit(phases, x):
     """
