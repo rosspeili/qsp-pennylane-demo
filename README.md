@@ -1,11 +1,21 @@
-# qsp-pennylane-demo
+# Learning QSP Phase Angles via Gradient Descent
 
 Training Quantum Signal Processing (QSP) phase angles from scratch via JAX gradient descent.
 
 A PennyLane community demo by Ross Peili.
 
-[**View the Notebook on nbviewer**](https://nbviewer.org/github/rosspeili/qsp-pennylane-demo/blob/main/demo.ipynb), 
-[**View the Notebook on Colab**](https://colab.research.google.com/drive/1AQ3ZNxwo4ed0DtVDlsz_jLeMAgf_UJgQ?usp=sharing)
+<div align="center">
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-efcefa?style=flat-square)](LICENSE)
+![Python](https://img.shields.io/badge/Python-3.10%2B-bae6fd?style=flat-square)
+![PennyLane](https://img.shields.io/badge/PennyLane-0.44%2B-e9d5ff?style=flat-square)
+![JAX](https://img.shields.io/badge/JAX-0.4.25%2B-a5f3fc?style=flat-square)
+![Optax](https://img.shields.io/badge/Optax-0.2.2%2B-fce7f3?style=flat-square)
+[![nbviewer](https://img.shields.io/badge/View-nbviewer-fef9c3?style=flat-square&logo=jupyter&logoColor=555)](https://nbviewer.org/github/rosspeili/qsp-pennylane-demo/blob/main/demo.ipynb)
+[![Colab](https://img.shields.io/badge/Open_in-Colab-fed7aa?style=flat-square&logo=google-colab&logoColor=555)](https://colab.research.google.com/drive/1AQ3ZNxwo4ed0DtVDlsz_jLeMAgf_UJgQ?usp=sharing)
+[![PennyLane Community](https://img.shields.io/badge/PennyLane-Community_Demo-bbf7d0?style=flat-square)](https://pennylane.ai/qml/demos_community)
+
+</div>
 
 ---
 
@@ -83,3 +93,9 @@ on a uniform grid of 64 signal values.
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE).
+
+---
+
+## Press Release
+
+[📄 View the Press Release](https://docs.google.com/document/d/1pamiIksg56KKkIIrCPj18YvCLocLVchkUFW3TM5Xs_o/edit?usp=sharing)
